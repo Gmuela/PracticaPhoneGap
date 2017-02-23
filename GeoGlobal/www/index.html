@@ -18,31 +18,32 @@
         });
 
     </script>
-    <title>Hello World</title>
+    <title>GeoGlobal</title>
 </head>
 
 <body>
-<div data-role="page" id="jesus">
 
-    <div data-role="header">
-        <h1>Welcome To My Homepage</h1>
-    </div>
+<div data-role="page" id="intro">
     <div data-role="main" class="ui-content">
-        <p id="comprobarGeo"></p>
-        <p id="hola"></p>
+        <h1 class="ui-header" id="titulo_app">GEOGLOBAL</h1>
 
-        <a href="#guillermo">Go to Willyrex</a>
-    </div>
-    <div data-role="footer">
-        <h1>Footer Text</h1>
+        <p id="contenido_intro" class="centrado">
+            <img src="img/logo.png" class="ui-content img_m_size little-top-margin">
+        </p>
+
+        <a href="#geolocal" id="boton_geolocal" class="ui-btn large-top-margin" data-transition="slideup">Botón por defecto GeoLocal</a>
     </div>
 </div>
-<div data-role="page" id="guillermo">
-    <div data-role="header">
-        <h1>Bienvenido a la prueba de acceso a properties</h1>
-    </div>
+
+<div data-role="page" id="geolocal">
     <div data-role="main" class="ui-content">
-        <p id="hola2"></p>
+        <h1 class="ui-header" id="titulo_geolocal">GEOGLOBAL</h1>
+
+        <p id="contenido_geolocal" class="centrado">
+            <img src="img/logo.png" class="ui-content img_m_size little-top-margin">
+        </p>
+
+        <a href="#geolocal" id="boton_siguiente_gelocal" class="ui-btn large-top-margin" data-transition="slideup">Botón por defecto GeoLocal</a>
     </div>
 </div>
 </body>
