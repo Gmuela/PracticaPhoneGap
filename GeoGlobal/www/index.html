@@ -8,13 +8,11 @@
     <script src="js/jquery_mobile/jquery.mobile-1.4.5.min.js"></script>
     <script type="text/javascript" language="JavaScript" src="js/jquery.i18n.properties-1.0.9.js"></script>
     <script type="text/javascript" language="JavaScript" src="js/presentation.messages.js"></script>
-    <script type="text/javascript" language="JavaScript" src="js/locations.js"></script>
-    <script type="text/javascript" language="JavaScript" src="js/languages.js"></script>
+    <script type="text/javascript" language="JavaScript" src="js/apisScripts.js"></script>
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
     <script>
         $(document).ready(function () {
-            locale_lang = getLocation();
-            setLanguage(locale_lang);
+            getLocation();
         });
 
     </script>

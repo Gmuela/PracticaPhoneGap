@@ -1,7 +1,38 @@
-function setLanguage(language) {
+var language = "";
 
-    var lang = "";
+function getLocation() {
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+}
 
+function onSuccess(position) {
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
+    getGeoNames(latitude, longitude);
+}
+
+
+function onError() {
+    language=null;
+    setLanguage();
+}
+
+function getGeoNames(latitude, longitude) {
+    $.ajax({
+        url: 'http://ws.geonames.org/countryCodeJSON?lat=' + latitude + '&lng=' + longitude + '&username=demo',
+        dataType: 'json',
+        success: function (data) {
+            language = data.countryCode;
+            setLanguage();
+        },
+        error: function () {
+            language = null
+            setLanguage();
+        }
+    });
+}
+
+function setLanguage() {
+    var lang = null;
     if (language == null) {
         if (navigator && navigator.userAgent && (lang = navigator.userAgent.match(/android.*\W(\w\w)-(\w\w)\W/i))) {
             lang = lang[1];
@@ -22,14 +53,14 @@ function setLanguage(language) {
             lang = language;
         }
     }
-
     $.i18n.properties({
         name: 'Messages',
         path: 'bundle/',
         mode: 'both',
-        language: lang,
+        language: language,
         callback: function () {
             setTexts();
         }
     });
+
 }
