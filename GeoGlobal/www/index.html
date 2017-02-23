@@ -1,24 +1,4 @@
 <!DOCTYPE html>
-<!--
-    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
-
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
 
 <head>
@@ -27,48 +7,32 @@
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="js/jquery_mobile/jquery.mobile-1.4.5.min.js"></script>
     <script type="text/javascript" language="JavaScript" src="js/jquery.i18n.properties-1.0.9.js"></script>
+    <script type="text/javascript" language="JavaScript" src="js/presentation.messages.js"></script>
+    <script type="text/javascript" language="JavaScript" src="js/locations.js"></script>
+    <script type="text/javascript" language="JavaScript" src="js/languages.js"></script>
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
     <script>
+        locale_lang = "";
+
         $(document).ready(function () {
+            getLocation();
+            setLanguage();
         });
+
     </script>
     <title>Hello World</title>
 </head>
 
 <body>
 <div data-role="page" id="jesus">
-    <script>
-        $(document).ready(function () {
-            getLocation();
-        });
-        function getLocation() {
-            navigator.geolocation.getCurrentPosition(onSuccess, onError, null);
-        }
-        function onSuccess(position) {
-            latitude = position.coords.latitude;
-            longitude = position.coords.longitude;
-            getGeoNames(latitude, longitude);
-        };
-        function onError(error) {
-            alert('code: '    + error.code    + '\n' + 'message: ' + error.message + '\n');
-        }
 
-        function getGeoNames(latitude, longitude) {
-            $.ajax({
-                url: 'http://ws.geonames.org/countryCodeJSON?lat=' + latitude + '&lng=' + longitude + '&username=demo',
-                dataType: 'json',
-                success: function (data) {
-                    console.log(data);
-                    alert(data.countryCode);
-                }
-            });
-        }
-    </script>
     <div data-role="header">
         <h1>Welcome To My Homepage</h1>
     </div>
     <div data-role="main" class="ui-content">
         <p id="comprobarGeo"></p>
+        <p id="hola"></p>
+
         <a href="#guillermo">Go to Willyrex</a>
     </div>
     <div data-role="footer">
@@ -76,39 +40,11 @@
     </div>
 </div>
 <div data-role="page" id="guillermo">
-    <script>
-        if ( navigator && navigator.userAgent && (lang = navigator.userAgent.match(/android.*\W(\w\w)-(\w\w)\W/i))) {
-            lang = lang[1];
-        }
-        if (!lang && navigator) {
-            if (navigator.language) {
-                lang = navigator.language;
-            } else if (navigator.browserLanguage) {
-                lang = navigator.browserLanguage;
-            } else if (navigator.systemLanguage) {
-                lang = navigator.systemLanguage;
-            } else if (navigator.userLanguage) {
-                lang = navigator.userLanguage;
-            }
-            lang = lang.substr(0, 2);
-        }
-        $(document).on("pagecreate", "#guillermo", function () {
-            $.i18n.properties({
-                name: 'Messages',
-                path: 'bundle/',
-                mode: 'both',
-                language: lang,
-                callback: function () {
-                    $("#hola").text(msg_hello);
-                }
-            });
-        });
-    </script>
     <div data-role="header">
         <h1>Bienvenido a la prueba de acceso a properties</h1>
     </div>
     <div data-role="main" class="ui-content">
-        <p id="hola"></p>
+        <p id="hola2"></p>
     </div>
 </div>
 </body>
