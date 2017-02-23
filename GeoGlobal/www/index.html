@@ -27,18 +27,49 @@
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="js/jquery_mobile/jquery.mobile-1.4.5.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <script>
+        $(document).ready(function () {
 
+        });
+    </script>
     <title>Hello World</title>
 </head>
 
 <body>
 <div data-role="page" id="jesus">
+    <script>
+        $(document).ready(function () {
+            getLocation();
+        });
+        function getLocation() {
+            navigator.geolocation.getCurrentPosition(onSuccess, onError, null);
+        }
+        function onSuccess(position) {
+            latitude = position.coords.latitude;
+            longitude = position.coords.longitude;
+            getGeoNames(latitude, longitude);
+        };
+        function onError(error) {
+            alert('code: '    + error.code    + '\n' + 'message: ' + error.message + '\n');
+        }
+
+        function getGeoNames(latitude, longitude) {
+            $.ajax({
+                url: 'http://ws.geonames.org/countryCodeJSON?lat=' + latitude + '&lng=' + longitude + '&username=demo',
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    alert(data.countryCode);
+                }
+            });
+        }
+    </script>
     <div data-role="header">
         <h1>Welcome To My Homepage</h1>
     </div>
     <div data-role="main" class="ui-content">
-        <p>Welcome! If you click on the link below, it will take you to Page Two.</p>
-        <a href="#guillermo">Go to Page Two</a>
+        <p id="comprobarGeo"></p>
+        <a href="#guillermo">Go to Willyrex</a>
     </div>
     <div data-role="footer">
         <h1>Footer Text</h1>
