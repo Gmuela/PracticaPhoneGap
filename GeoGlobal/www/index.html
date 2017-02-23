@@ -12,11 +12,9 @@
     <script type="text/javascript" language="JavaScript" src="js/languages.js"></script>
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
     <script>
-        locale_lang = "";
-
         $(document).ready(function () {
-            getLocation();
-            setLanguage();
+            locale_lang = getLocation();
+            setLanguage(locale_lang);
         });
 
     </script>

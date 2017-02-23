@@ -1,5 +1,5 @@
 function getLocation() {
-    navigator.geolocation.getCurrentPosition(onSuccess, onError, null);
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
 }
 
 function onSuccess(position) {
@@ -7,7 +7,7 @@ function onSuccess(position) {
     longitude = position.coords.longitude;
     getGeoNames(latitude, longitude);
 }
-;
+
 
 function onError(error) {
     alert('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
@@ -18,8 +18,11 @@ function getGeoNames(latitude, longitude) {
         url: 'http://ws.geonames.org/countryCodeJSON?lat=' + latitude + '&lng=' + longitude + '&username=demo',
         dataType: 'json',
         success: function (data) {
-            console.log(data);
-            locale_lang = data.countryCode;
+            if (data == null) {
+                return null;
+            } else {
+                return data.countryCode;
+            }
         }
     });
 }
