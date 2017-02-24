@@ -142,7 +142,7 @@ h1 {
 }
 
 .large-top-margin {
-    margin-top: 300px;
+    margin-top: 260px;
 }
 
 .img_m_size {
@@ -155,5 +155,9 @@ h1 {
 
 .link-sin-deco{
 text-emphasis:none;
+}
+
+.popup_xl_size{
+    width: 85%;
 }
 
