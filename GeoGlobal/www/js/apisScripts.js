@@ -12,13 +12,13 @@ function onSuccess(position) {
 
 
 function onError() {
-    language=null;
+    language = null;
     setLanguage();
 }
 
 function getGeoNames(latitude, longitude) {
     $.ajax({
-        url: 'http://ws.geonames.org/countryCodeJSON?lat=' + latitude + '&lng=' + longitude + '&username=demo',
+        url: 'http://ws.geonames.org/countryCodeJSON?lat=' + latitude + '&lng=' + longitude + '&username=javacurso',
         dataType: 'json',
         success: function (data) {
             language = data.countryCode;
@@ -48,11 +48,10 @@ function setLanguage() {
             } else if (navigator.userLanguage) {
                 lang = navigator.userLanguage;
             }
-            lang = lang.substr(0, 2);
-        } else {
-            lang = language;
+            language = lang.substr(0, 2);
         }
     }
+
     $.i18n.properties({
         name: 'Messages',
         path: 'bundle/',
@@ -62,5 +61,4 @@ function setLanguage() {
             setTexts();
         }
     });
-
 }
