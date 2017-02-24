@@ -142,9 +142,22 @@ h1 {
 }
 
 .large-top-margin {
-    margin-top: 300px;
+    margin-top: 260px;
 }
 
 .img_m_size {
     width: 50%;
 }
+
+.img_xl_size {
+    width: 100%;
+}
+
+.link-sin-deco{
+text-emphasis:none;
+}
+
+.popup_xl_size{
+    width: 85%;
+}
+
