@@ -163,8 +163,16 @@ h1 {
     width: 50%;
 }
 
+.img_xm_size {
+    width: 65%;
+}
+
 .img_xl_size {
     width: 100%;
+}
+
+.img_xxl_size {
+    width: 150%;
 }
 
 .link-sin-deco{
