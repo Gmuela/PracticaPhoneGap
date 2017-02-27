@@ -17,7 +17,6 @@ function onSuccess(position) {
 
 
 function onError() {
-    alert("error");
     language = null;
     setLanguage();
 }
@@ -43,7 +42,6 @@ function setLanguage() {
         if (navigator && navigator.userAgent && (lang = navigator.userAgent.match(/android.*\W(\w\w)-(\w\w)\W/i))) {
             lang = lang[1];
         }
-        alert(navigator.language);
         if (!lang && navigator) {
             if (navigator.language) {
                 lang = navigator.language;
