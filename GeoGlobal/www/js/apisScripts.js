@@ -2,7 +2,7 @@ var language = "";
 
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        navigator.geolocation.getCurrentPosition(onSuccess, onError, {maximumAge: 10000});
     } else {
         onError();
     }
