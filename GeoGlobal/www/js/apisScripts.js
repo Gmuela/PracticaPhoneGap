@@ -21,6 +21,7 @@ function getGeoNames(latitude, longitude) {
         url: 'http://ws.geonames.org/countryCodeJSON?lat=' + latitude + '&lng=' + longitude + '&username=javacurso',
         dataType: 'json',
         success: function (data) {
+            alert(data.countryCode);
             language = data.countryCode;
             setLanguage();
         },
