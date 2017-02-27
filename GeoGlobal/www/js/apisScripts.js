@@ -14,7 +14,7 @@ function onSuccess(position) {
 function onError() {
     alert("error");
     language = null;
-    setLanguage();
+  //  setLanguage();
 }
 
 function getGeoNames(latitude, longitude) {
