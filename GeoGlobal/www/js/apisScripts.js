@@ -12,6 +12,7 @@ function onSuccess(position) {
 
 
 function onError() {
+    alert("error");
     language = null;
     setLanguage();
 }
