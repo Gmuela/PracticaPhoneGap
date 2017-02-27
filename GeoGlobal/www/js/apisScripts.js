@@ -2,7 +2,7 @@ var language = "";
 
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(onSuccess, onError, {maximumAge: 10000});
+        navigator.geolocation.getCurrentPosition(onSuccess, onError, { maximumAge: 500000, enableHighAccuracy: true, timeout: 6000 });
     } else {
         onError();
     }
@@ -27,7 +27,6 @@ function getGeoNames(latitude, longitude) {
         url: 'http://ws.geonames.org/countryCodeJSON?lat=' + latitude + '&lng=' + longitude + '&username=javacurso',
         dataType: 'json',
         success: function (data) {
-            alert(data.countryCode);
             language = data.countryCode;
             setLanguage();
         },
