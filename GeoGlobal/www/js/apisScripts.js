@@ -60,7 +60,7 @@ function setLanguage() {
         name: 'Messages',
         path: 'bundle/',
         mode: 'both',
-        language: language,
+        language: language.toLowerCase(),
         callback: function () {
             setTexts();
         }
