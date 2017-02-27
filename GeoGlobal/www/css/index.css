@@ -37,7 +37,7 @@ body {
     );
     background-attachment: fixed;
     font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-    font-size: 12px;
+    font-size: 6px;
     height: 100%;
     margin: 0px;
     padding: 0px;
@@ -51,12 +51,12 @@ select,
 textarea,
 button,
 .ui-btn {
-    font-size: 1.5em;
+    font-size: 1em;
 }
 
 #titulo_app, #titulo_geolocal, #titulo_idieciochon, #titulo_lenguaje{
     font-weight: bolder;
-    font-size: 2em;
+    font-size: 1.3em;
 }
 
 /* Portrait layout (default) */
@@ -84,7 +84,6 @@ button,
 }
 
 h1 {
-    font-size: 24px;
     font-weight: normal;
     margin: 0px;
     overflow: visible;
@@ -160,19 +159,19 @@ h1 {
 }
 
 .img_m_size {
-    width: 50%;
+    width: 25%;
 }
 
 .img_xm_size {
-    width: 65%;
+    width: 37%;
 }
 
 .img_xl_size {
-    width: 100%;
+    width: 50%;
 }
 
 .img_xxl_size {
-    width: 150%;
+    width: 75%;
 }
 
 .link-sin-deco{
@@ -180,6 +179,6 @@ text-emphasis:none;
 }
 
 .popup_xl_size{
-    width: 85%;
+    width: 47%;
 }
 
