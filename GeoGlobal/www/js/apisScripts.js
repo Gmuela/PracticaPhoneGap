@@ -33,7 +33,7 @@ function getGeoNames(latitude, longitude) {
 
 function setLanguage() {
     var lang = null;
-    if (language == null) {
+    if (language == null || language == "" || language == undefined) {
         if (navigator && navigator.userAgent && (lang = navigator.userAgent.match(/android.*\W(\w\w)-(\w\w)\W/i))) {
             lang = lang[1];
         }
