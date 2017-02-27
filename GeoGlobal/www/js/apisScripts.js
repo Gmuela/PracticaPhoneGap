@@ -2,7 +2,9 @@ var language = "";
 
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(onSuccess, onError, { maximumAge: 500000, enableHighAccuracy: true, timeout: 6000 });
+        navigator.geolocation.getCurrentPosition(onSuccess, onError,
+                                                { maximumAge: 500000, enableHighAccuracy: true, timeout: 6000 }
+        );
     } else {
         onError();
     }
