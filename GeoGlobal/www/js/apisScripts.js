@@ -1,7 +1,12 @@
 var language = "";
 
 function getLocation() {
-    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    } else {
+        onError();
+    }
+
 }
 
 function onSuccess(position) {
@@ -27,7 +32,6 @@ function getGeoNames(latitude, longitude) {
             setLanguage();
         },
         error: function () {
-            alert("error ajax");
             language = null
             setLanguage();
         }
@@ -40,10 +44,7 @@ function setLanguage() {
         if (navigator && navigator.userAgent && (lang = navigator.userAgent.match(/android.*\W(\w\w)-(\w\w)\W/i))) {
             lang = lang[1];
         }
-        alert(navigator.userAgent);
         alert(navigator.language);
-        alert(navigator.systemLanguage);
-        alert(navigator.userLanguage);
         if (!lang && navigator) {
             if (navigator.language) {
                 lang = navigator.language;
